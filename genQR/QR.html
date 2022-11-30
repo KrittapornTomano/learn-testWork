@@ -1,0 +1,34 @@
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+<center>
+<div class="form">
+  <h1>Generate QR Code</h1>
+  <form>
+    <input type="url" id="website" name="website" placeholder="กรอก url หรือข้อความ" required />
+    <button type="button" onclick="generateQRCode()">
+      Generate QR Code
+    </button>
+  </form>
+<center>
+  <div id="qrcode-container">
+    <div id="qrcode" class="qrcode"></div>
+    <div id="qrcode-2" class="qrcode"></div>
+  </div>
+    <script type="text/javascript">
+    function generateQRCode() {
+      let website = document.getElementById("website").value;
+      if (website) {
+        let qrcodeContainer = document.getElementById("qrcode");
+        qrcodeContainer.innerHTML = "";
+        new QRCode(qrcodeContainer, website);
+        /*With some styles*/
+        document.getElementById("qrcode-container").style.display = "block";
+      } else {
+        alert("กรุณากรอกข้อมูล");
+      }
+    }
+  </script>
+  </center>
+  
+</div>
+</center>
